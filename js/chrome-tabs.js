@@ -1,3 +1,8 @@
+
+
+//Coppy file này vào nodemodule ChromeTabs
+
+
 (function(){
   const isNodeContext = typeof module !== 'undefined' && typeof module.exports !== 'undefined'
   const Draggabilly = isNodeContext ? require('draggabilly') : window.Draggabilly
@@ -249,6 +254,12 @@
       } else {
         faviconEl.setAttribute('hidden', '')
         faviconEl.removeAttribute('style')
+      }
+
+      if (tabProperties.notClose) {
+        const closeEl = tabEl.querySelector('.chrome-tab-close')
+        closeEl.setAttribute('hidden', '')
+        closeEl.removeAttribute('style')
       }
 
       if (tabProperties.id) {
